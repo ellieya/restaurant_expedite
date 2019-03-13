@@ -1,0 +1,3 @@
+﻿  main.cpp
+c:\users\khleys\source\repos\restaurant_expedite\restaurant_expedite\randomizer.h(29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  restaurant_expedite.vcxproj -> C:\Users\Khleys\source\repos\restaurant_expedite\Debug\restaurant_expedite.exe

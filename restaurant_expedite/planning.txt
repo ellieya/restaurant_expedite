@@ -1,0 +1,56 @@
+What I'm thinking is:
+
+Background "Processes":
+	[addressed] -Timer to keep track of current time. Restaurant open time should be configurable, but for now we will work with 11AM to 12PM operations for debug purpose (what a diligent restaurant!)
+
+Main Process, Order:
+	[addressed] 1) User come based on RNG (can be modified later to have higher chance based on time of day)
+		Probably want to prevent customers from coming in 30 min before closing
+	2) User time before ordering based on RNG w/ realistic range (like, nobody would spent 1 hr to order food)
+	3) Orders go to kitchen in QUEUE. Chefs will be cooking dish in order of arrival. (We can modify this to priority queue based on shortest time later. We will start out with 1 chef operating only 1 dish at a time, then modify to multiple dishes...)
+	4) Dish are sent out to customer
+
+
+So, what we will need:
+
+CLASS - RestaurantTime
+RestaurantTime currentTime;
+RestaurantTime.setOpenTime();
+RestaurantTime.setClosedTime();
+
+
+CLASS - Randomizer <- Like what prof. Iacona wrote... I want to make one for general use to refer back to so don't have to keep rewriting code for RNG...
+Randomizer.generateInt(int);
+CLASS - Customer
+Customer newCustomer(RANDOMLY_GENERATED_ORDERING_TIME);
+int orderingTime;
+string status; //Either "WAIT_FOOD" (Waiting for food) "WAIT_ORDER" (Server is waiting for customer order) or "EATING"
+void decrOrderingTime();
+Dish order;
+
+MAIN
+CONST CUSTOMER_MAXIMUM;
+Customer customer[CUSTOMER_MAXIMUM];
+
+
+
+Main will probably look like this:
+
+while (currentTime != closedTime) {
+
+//Get today's menu
+
+	if(isCustomerArriving(RNG_ROLL)) {
+		customersInRestaurant++;
+		customersDeciding++;
+	}
+	
+	for (int i = 0; i < customersDeciding; i++) {
+		decrOrderingTime();
+	}
+
+	// Keep doing stuff
+
+
+}
+
