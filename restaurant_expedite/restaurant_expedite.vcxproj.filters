@@ -40,5 +40,8 @@
     <ClInclude Include="RestaurantTime.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="TimeExtraction.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

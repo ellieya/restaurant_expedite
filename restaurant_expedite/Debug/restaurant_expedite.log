@@ -1,4 +1,4 @@
 ﻿  main.cpp
 c:\users\khleys\source\repos\restaurant_expedite\restaurant_expedite\randomizer.h(39): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\khleys\source\repos\restaurant_expedite\restaurant_expedite\clock.h(48): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\khleys\source\repos\restaurant_expedite\restaurant_expedite\timeextraction.h(44): warning C4018: '<': signed/unsigned mismatch
   restaurant_expedite.vcxproj -> C:\Users\Khleys\source\repos\restaurant_expedite\Debug\restaurant_expedite.exe

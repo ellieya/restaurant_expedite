@@ -126,6 +126,7 @@
     <ClInclude Include="Dish.h" />
     <ClInclude Include="Randomizer.h" />
     <ClInclude Include="RestaurantTime.h" />
+    <ClInclude Include="TimeExtraction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

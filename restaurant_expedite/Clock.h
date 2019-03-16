@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+using namespace std;
 
 class Clock {
 	int hour;
@@ -12,9 +14,8 @@ public:
 	int getMin();
 	void incrMin();
 	void incrHour();
-	bool operator =();
-
-	//I want an overloaded cout here...
+	bool operator == (Clock target);
+	string getClockString(int hour); //If argument is 12, will return 12-hour clock. All other cases, return 24-hour clock.
 };
 
 
@@ -46,7 +47,7 @@ void Clock::incrHour() {
 	if (hour != 23)
 		hour++;
 	else
-		hour == 0;
+		hour = 0;
 }
 
 void Clock::incrMin() {
@@ -59,32 +60,58 @@ void Clock::incrMin() {
 }
 
 
-/*
-{
+
+string Clock::getClockString(int hour) {
+	int newHourHolder;
 	string stringHour;
 	string stringMinute;
 	string meridian;
-
-
-	//Zero-pad hour if < 10
-	if (hour < 10)
-		stringHour = "0" + hour;
-	else
-		stringHour = hour;
+	string finalString;
 
 	//Zero-pad minute if < 10
 	if (minute < 10)
-		stringMinute = "0" + hour;
+		stringMinute = "0" + to_string(minute);
 	else
-		stringMinute = minute;
+		stringMinute = to_string(minute);
 
-	//Calculate meridian
-	if (hour / 12 == 1)
-		meridian = "PM";
-	else
-		meridian = "AM";
+	switch (hour) {
+	case 12:
+		//Fix hour
+		newHourHolder = (this->hour) % 12;
 
-	stream << hour % 12 << ":" << minute << meridian;
+		//Zero-pad hour if < 10, or fix if = 0
+		if (newHourHolder < 10)
+			if (newHourHolder == 0)
+				stringHour = "12";
+			else
+				stringHour = "0" + to_string(newHourHolder);
+		else
+			stringHour = to_string(newHourHolder);
 
+		//Calculate meridian
+		if (this->hour / 12 == 1)
+			meridian = "PM";
+		else
+			meridian = "AM";
+		
+		finalString = stringHour + ":" + stringMinute + " " + meridian;
+		
+		break;
+	default:
+
+		//Zero-pad hour if < 10
+		if (this->hour < 10)
+			stringHour = "0" + to_string(this->hour);
+		else
+			stringHour = to_string(this->hour);
+		
+		finalString = stringHour + ":" + stringMinute;
+		break;
+	}
+	
+	return finalString;
 }
-*/
+
+bool Clock::operator==(Clock target) {
+	return (hour == target.hour && minute == target.minute);
+}
