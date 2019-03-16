@@ -1,3 +1,8 @@
+3/15/19:
+-Customer.h is good and ready to use!
+-Clock.h needs reference code to code friend overloaded <<, ==, also needs testing
+
+
 What I'm thinking is:
 
 Background "Processes":
@@ -13,20 +18,21 @@ Main Process, Order:
 
 So, what we will need:
 
-CLASS - RestaurantTime
+CLASS - RestaurantTime <- Figure out how to do inheritance in C++ '-'
 RestaurantTime currentTime;
 RestaurantTime.setOpenTime();
 RestaurantTime.setClosedTime();
 
 
-CLASS - Randomizer <- Like what prof. Iacona wrote... I want to make one for general use to refer back to so don't have to keep rewriting code for RNG...
-Randomizer.generateInt(int);
-CLASS - Customer
-Customer newCustomer(RANDOMLY_GENERATED_ORDERING_TIME);
-int orderingTime;
-string status; //Either "WAIT_FOOD" (Waiting for food) "WAIT_ORDER" (Server is waiting for customer order) or "EATING"
-void decrOrderingTime();
-Dish order;
+[Done]	CLASS - Randomizer <- Like what prof. Iacona wrote... I want to make one for general use to refer back to so don't have to keep rewriting code for RNG...
+		Randomizer.generateInt(int);
+[Done]	CLASS - Customer
+		Customer newCustomer(RANDOMLY_GENERATED_ORDERING_TIME);
+		int orderingTime;
+		string status; //Either "WAIT_FOOD" (Waiting for food) "WAIT_ORDER" (Server is waiting for customer order) or "EATING"
+		void decrOrderingTime();
+		Dish order;
+
 
 MAIN
 CONST CUSTOMER_MAXIMUM;

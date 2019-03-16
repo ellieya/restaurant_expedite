@@ -17,6 +17,9 @@ class Randomizer {
 public:
 	static int generateInt(int max);
 	//generateInt from 0 to specified int
+
+	static int generateInt(int min, int max);
+	//generateInt from min to specified int
 };
 
 int Randomizer::generateInt(int max) {
@@ -24,6 +27,13 @@ int Randomizer::generateInt(int max) {
 	initSeed();
 	return rand() % max;
 }
+
+int Randomizer::generateInt(int min, int max) {
+	max -= min;
+	initSeed();
+	return (rand() % max) + min;
+}
+
 
 void Randomizer::seed() {
 	srand(time(0));

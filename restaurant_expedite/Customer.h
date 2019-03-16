@@ -35,7 +35,7 @@ public:
 };
 
 Customer::Customer()
-	:id(idHolder),orderingTime(generateOrderingTime())
+	:id(idHolder), orderingTime(generateOrderingTime()), status('O')
 {
 	//Intentionally blank
 }
@@ -63,10 +63,10 @@ char Customer::getStatus() {
 void Customer::switchStatus() {
 	switch (status) {
 	case 'O':
-		status == 'F';
+		status = 'F';
 		break;
 	case 'F':
-		status == 'S';
+		status = 'S';
 		break;
 	default:
 		throw "ERR";
@@ -86,7 +86,7 @@ void Customer::setOrder(Dish order) {
 }
 
 int Customer::generateOrderingTime() {
-	return Randomizer::generateInt(30);
+	return Randomizer::generateInt(1,30);
 }
 
 int Customer::idHolder = 0;
